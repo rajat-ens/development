@@ -35,7 +35,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">{% render 'wishlisthero-collection-product' with product: card_product %}
+  <div class="card-wrapper product-card-wrapper underline-links-hover">{% render 'wishlisthero-collection-product' with product, product: card_product %}
     <div
       class="
         card card--{{ settings.card_style }}
@@ -343,7 +343,7 @@
     </div>
   </div>
 {%- else -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">{% render 'wishlisthero-collection-product' with product: card_product %}
+  <div class="card-wrapper product-card-wrapper underline-links-hover">{% render 'wishlisthero-collection-product' with product, product: card_product %}
     <div
       class="
         card card--{{ settings.card_style }}
@@ -385,3 +385,18 @@
     </div>
   </div>
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'wishlisthero-collection-product' with product: card_product %}"
+  to: "{% render 'wishlisthero-collection-product' with product, product: card_product
+    %}"
+  position: 2009..2091
+- from: "{% render 'wishlisthero-collection-product' with product: card_product %}"
+  to: "{% render 'wishlisthero-collection-product' with product, product: card_product
+    %}"
+  position: 18479..18561
+{% endcomment %}
